@@ -37,11 +37,15 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.button').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
   }),
-  it.only('Preenche e limpa os campos nome, sobrenome, email e telefone', () => {
+  it('Preenche e limpa os campos nome, sobrenome, email e telefone', () => {
     cy.get('#firstName').type("Letícia").should('have.value', 'Letícia').clear().should('have.value', '');
     cy.get('#lastName').type("Alves").should('have.value', 'Alves').clear().should('have.value', '');
     cy.get('#email').type("leticiancalves@hotmail.com").should('have.value', 'leticiancalves@hotmail.com').clear().should('have.value', '');
     cy.get('#phone').type('12313').should('have.value', '12313').clear().should('have.value', '');
 
+  }),
+  it.only('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
+    cy.get('.button').click();
+    cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
   })
 })
