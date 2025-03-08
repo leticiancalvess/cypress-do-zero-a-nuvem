@@ -23,5 +23,9 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#open-text-area').type("Hello");
     cy.get('.button').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
+  }),
+  it.only('Validar que não é possivel digitar um valor não-numérico no campo do telefone', () => {
+    cy.get('#phone').type('uhasuhsauhhs');
+    cy.get('#phone').should('have.value', '')
   })
 })
