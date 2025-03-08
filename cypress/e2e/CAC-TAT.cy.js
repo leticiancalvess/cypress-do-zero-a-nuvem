@@ -44,8 +44,17 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#phone').type('12313').should('have.value', '12313').clear().should('have.value', '');
 
   }),
-  it.only('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
+  it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
     cy.get('.button').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
+  }),
+  it.only('envia o formuário com sucesso usando um comando customizado', () => {
+    const data = {
+      firstName: 'Let',
+      lastName: 'Alves',
+      email: 'leticiancalves@hotmail.com',
+      text: 'Hello World!'
+    }
+    cy.fillMandatoryFieldsAndSubmit(data)
   })
 })
