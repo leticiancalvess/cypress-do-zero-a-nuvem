@@ -75,9 +75,16 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   it('marca cada tipo de atendimento', () => {
     cy.get(':nth-child(3) > input').check().should('be.checked');
     cy.get(':nth-child(4) > input').check().should('be.checked');
-  }),
-  it.only('marca ambos checkboxes, depois desmarca o último', () => {
+  })
+  it('marca ambos checkboxes, depois desmarca o último', () => {
     cy.get('input[type="checkbox"').check().should('be.checked').last().uncheck().should('not.be.checked')
     
+  }),
+  it.only('seleciona um arquivo da pasta fixtures', () => {
+    cy.get('#file-upload').selectFile('./cypress/fixtures/example.json')
+    .should(input => {
+      expect(input[0].files[0].name).to.equal('example.json')
+    })
   })
 })
+
