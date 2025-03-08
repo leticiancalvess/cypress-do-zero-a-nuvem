@@ -13,7 +13,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#lastName').type("Alves");
     cy.get('#email').type("leticiancalves@hotmail.com");
     cy.get('#open-text-area').type(longText, { delay: 0 });
-    cy.get('.button').click();
+    cy.contains('.button', 'Enviar').click();
     cy.get('.success').should('be.visible');
   }),
   it('Exibe Mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
@@ -21,7 +21,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#lastName').type("Alves");
     cy.get('#email').type("leticiancalves@x");
     cy.get('#open-text-area').type("Hello");
-    cy.get('.button').click();
+    cy.contains('.button', 'Enviar').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
   }),
   it('Validar que não é possivel digitar um valor não-numérico no campo do telefone', () => {
@@ -34,7 +34,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#email').type("leticiancalves@hotmail.com");
     cy.get('#phone-checkbox').click()
     cy.get('#open-text-area').type("Hello");
-    cy.get('.button').click();
+    cy.contains('.button', 'Enviar').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
   }),
   it('Preenche e limpa os campos nome, sobrenome, email e telefone', () => {
@@ -45,7 +45,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   }),
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
-    cy.get('.button').click();
+    cy.contains('.button', 'Enviar').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
   }),
   it('envia o formuário com sucesso usando um comando customizado (argumento)', () => {
@@ -57,7 +57,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     }
     cy.fillMandatoryFieldsAndSubmitArgument(data)
   }),
-  it.only('envia o formuário com sucesso usando um comando customizado (objeto)', () => {
+  it('envia o formuário com sucesso usando um comando customizado (objeto)', () => {
     cy.fillMandatoryFieldsAndSubmitObject()
   })
 })
