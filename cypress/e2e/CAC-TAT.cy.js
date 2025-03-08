@@ -48,13 +48,16 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.button').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
   }),
-  it.only('envia o formuário com sucesso usando um comando customizado', () => {
+  it('envia o formuário com sucesso usando um comando customizado (argumento)', () => {
     const data = {
       firstName: 'Let',
       lastName: 'Alves',
       email: 'leticiancalves@hotmail.com',
       text: 'Hello World!'
     }
-    cy.fillMandatoryFieldsAndSubmit(data)
+    cy.fillMandatoryFieldsAndSubmitArgument(data)
+  }),
+  it.only('envia o formuário com sucesso usando um comando customizado (objeto)', () => {
+    cy.fillMandatoryFieldsAndSubmitObject()
   })
 })
