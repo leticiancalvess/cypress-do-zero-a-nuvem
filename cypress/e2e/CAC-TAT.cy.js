@@ -112,9 +112,17 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
     cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
   }),
-  it.only('testa a página da política de privacidade de forma independente', () => {
+  it('testa a página da política de privacidade de forma independente', () => {
     cy.visit('./src/privacy.html')
     cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
+  }),
+  it.only('mensagem de sucesso desaparece após 3 segundos', () => {
+    cy.clock()
+    cy.fillMandatoryFieldsAndSubmitObject();
+    cy.get('.success').should('be.visible');
+    cy.tick(3000);
+    cy.get('.success').should('not.be.visible');
+
   })
 
 })
