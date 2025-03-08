@@ -116,13 +116,38 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.visit('./src/privacy.html')
     cy.contains('h1', 'CAC TAT - Política de Privacidade').should('be.visible')
   }),
-  it.only('mensagem de sucesso desaparece após 3 segundos', () => {
+  it('mensagem de sucesso desaparece após 3 segundos', () => {
     cy.clock()
     cy.fillMandatoryFieldsAndSubmitObject();
     cy.get('.success').should('be.visible');
     cy.tick(3000);
     cy.get('.success').should('not.be.visible');
 
+  }),
+  it('repetir o mesmo teste várias vezes', () => {
+    Cypress._.times(3, () => {
+      cy.fillMandatoryFieldsAndSubmitObject()
+    })
+  }),
+  it('exibe e oculta as mensagens de sucesso e erro usando .invoke()', () => {
+    cy.get('.success')
+    .should('not.be.visible')
+    .invoke('show')
+    .should('be.visible')
+    .and('contain', 'Mensagem enviada com sucesso.')
+    .invoke('hide')
+    .should('not.be.visible')
+  cy.get('.error')
+    .should('not.be.visible')
+    .invoke('show')
+    .should('be.visible')
+    .and('contain', 'Valide os campos obrigatórios!')
+    .invoke('hide')
+    .should('not.be.visible')
+  }),
+  it.only('preenche o campo da área de texto usando o comando invoke', () =>{
+    cy.get('#open-text-area').invoke('val', 'Letícia')
+    .should('have.value', 'Letícia')
   })
 
 })
