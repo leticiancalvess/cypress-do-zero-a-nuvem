@@ -24,8 +24,18 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.button').click();
     cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
   }),
-  it.only('Validar que não é possivel digitar um valor não-numérico no campo do telefone', () => {
+  it('Validar que não é possivel digitar um valor não-numérico no campo do telefone', () => {
     cy.get('#phone').type('uhasuhsauhhs');
     cy.get('#phone').should('have.value', '')
+  }),
+  it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () =>{
+    cy.get('#firstName').type("Letícia");
+    cy.get('#lastName').type("Alves");
+    cy.get('#email').type("leticiancalves@x");
+    cy.get('#phone-checkbox').click()
+    cy.get('#open-text-area').type("Hello");
+    cy.get('.button').click();
+    cy.get('.error').should('be.visible').should('contain', "Valide os campos obrigatórios!")
+
   })
 })
