@@ -1,28 +1,19 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# 🌲 Cypress, From Zero to Cloud ☁️
 
-👋 Seja bem-vindo(a)!
+👋 Welcome
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+## This course is designed to help you acquire more knowledge in:
 
-## O que você vai aprender?
+- How to set up a Cypress project from scratch
+- How to visit local and remote pages
+- How to interact with the most common elements found in web applications
+- How to test file uploads
+- How to perform various checks for expected results
+- How to create custom commands
+- How to handle links that open in a new browser tab
+- How to run tests simulating mobile device dimensions
+- How to solve the same problems in different ways, using the Cypress API
+- How to create minimal documentation for your automated testing project
+- How to run tests in a continuous integration workflow whenever changes occur in the application (or test) code
+- How to integrate your continuous integration workflow with Cypress Cloud (Cypress' cloud-based test management service)
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
-
-## Vamos começar?
-
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
-
-___
-
-Este é um curso da **Escola Talking About Testing**.
