@@ -1,8 +1,34 @@
-# 🌲 Cypress, From Zero to Cloud ☁️
+
+
+# 📗 Cypress, From Zero to Cloud
+
 
 👋 Welcome
 
-## This course is designed to help you acquire more knowledge in:
+## 🚀 Installation
+
+Clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/leticiancalvess/cypress-do-zero-a-nuvem.git
+cd cypress-do-zero-a-nuvem
+npm install
+# or
+yarn
+```
+
+## 🧪 Running the Tests
+
+Interactive mode (GUI):
+```bash
+npx cypress open
+```
+
+Headless mode (CLI):
+```bash
+npx cypress run
+```
+## 📝 Content
 
 - How to set up a Cypress project from scratch
 - How to visit local and remote pages
@@ -16,4 +42,6 @@
 - How to create minimal documentation for your automated testing project
 - How to run tests in a continuous integration workflow whenever changes occur in the application (or test) code
 - How to integrate your continuous integration workflow with Cypress Cloud (Cypress' cloud-based test management service)
+
+
 
